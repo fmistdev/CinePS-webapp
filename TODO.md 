@@ -1,0 +1,30 @@
+
+.editorconfig ??
+prettier a la place ?
+
+
+
+------------------- login flow
+
+store keep auth store in local session
+
+auth guard check all routes
+    if user not authenticated, redirect to login page
+
+token interceptor add bearer to all request, (even login_check which doesnt care)
+the bearer can be valid, expired, or empty 
+
+
+-----
+
+
+initialiser proprement l'app
+    des que l'auth est completée,
+    redirection vers accueil
+    overlay dechargement avec loader
+        recuperation des données user manquantes
+        recupreration de la semaine en cours
+        recuperation de ...
+    permet l'ulisation safe de snapshot pour les composants qui ne modifient pas le state?
+
+

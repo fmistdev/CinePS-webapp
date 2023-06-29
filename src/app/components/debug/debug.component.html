@@ -1,0 +1,44 @@
+<div *ngIf="isAuthenticated$ | async;else unauthenticated">
+  <p>✔️ user authenticated</p>
+  <ul>
+
+    <li>token
+      <ul *ngIf="decodedToken$ | async as decodedToken">
+        <li>token expiration date: {{ decodedToken.expirationDateFR }}
+        </li>
+        <li>token username: {{ decodedToken.username }}</li>
+        <li>roles
+          <ul>
+            <li *ngFor="let role of decodedToken.roles">{{ role }}</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+
+    <li>user
+      <ul *ngIf="user$ | async as user">
+        <li>id: {{ user.id }}</li>
+        <li>Prenom: {{ user.Prenom }}</li>
+        <li>Nom: {{ user.Nom }}</li>
+        <li>mail: {{ user.mail }}</li>
+      </ul>
+    </li>
+    <li *ngIf="currentSemaine$ | async as currentSemaine">current semaine ✔
+      <ul>
+        <li>Prochaine ps: {{ currentSemaine.jour | date:'EEEE d MMMM y, HH:mm:ss ZZZZZ' }}</li>
+        <li>proposeur Nom: {{ currentSemaine.proposeur.Nom }}</li>
+        <li *ngIf="(isUserProposeur$ | async) === undefined">user has no role</li>
+        <li *ngIf="(isUserProposeur$ | async) === true">user proposeur</li>
+        <li>proposition_termine: {{ currentSemaine.proposition_termine ? "✔" : "❌" }}</li>
+        <li *ngIf="(isUserProposeur$ | async) === false">user is votant</li>
+        <li>user has voted: {{ ((hasUserVoted$ | async) === undefined) ? "unknown" : ((hasUserVoted$ | async) ? "✔" :
+          "❌" ) }}</li>
+      </ul>
+    </li>
+    <li *ngIf="!(currentSemaine$ | async)">no current semaine ❌</li>
+  </ul>
+</div>
+
+<ng-template #unauthenticated>
+  <p>❌ user unauthenticated</p>
+</ng-template>

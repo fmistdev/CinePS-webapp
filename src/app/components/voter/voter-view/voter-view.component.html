@@ -1,0 +1,22 @@
+<div *ngIf="isProposeurDefined$ | async">
+    <!-- <p>Le proposeur est défini</p> -->
+  
+    <div *ngIf="!(isUserProposeur$ | async)">
+      <!-- <p>L'utilisateur est un votant.</p> -->
+  
+      <div *ngIf="!(isPropositionInProgress$ | async)">
+        <!-- la proposition n'est pas terminée -->
+  
+        <div *ngIf="hasVotedUser$ | async; else userHasNotVoted">
+          <app-result-view></app-result-view>
+        </div>
+
+        <ng-template #userHasNotVoted>
+            <app-vote [userId]="userId"></app-vote>
+        </ng-template>
+  
+      </div>
+  
+    </div>
+  
+  </div>

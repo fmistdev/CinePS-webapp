@@ -1,0 +1,16 @@
+<p>il est l'heure de voter.</p>
+
+<ul id="testlist">
+  <li *ngFor="let proposition of propositions$ | async" class="proposition" id="{{ wrapPropositionId(proposition.id) }}"
+    draggable="true" (dragstart)="dragstart($event)" (drop)="drop($event)" (dragover)="dragover($event)">
+
+    <a href="{{ proposition.film.imdb }}">({{ proposition.film.sortie_film }}) {{ proposition.film.titre
+    }} [{{proposition.id}}]</a>
+
+
+  </li>
+</ul>
+
+
+
+<button (click)="endVote()">Indiquer qu'on a fini de voter</button>

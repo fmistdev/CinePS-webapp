@@ -1,0 +1,28 @@
+<div *ngIf="(currentSemaine$ | async) as c; else noPlanifiedPS">
+
+  <ol>
+    <!-- <li>prochaine ps: {{ c.jour | date:'EEEE, d MMMM y, HH:mm:ss ZZZZZ' }}</li> -->
+    <li>Prochaine ps: {{ c.jour | date:'EEEE d MMMM y' }}</li>
+
+    <li>Proposeur: {{ c.proposeur.Nom }}</li>
+
+    <li>Propositions {{ c.proposition_termine ? "✔" : "en cours ✍️" }}</li>
+
+    <li *ngIf="c.proposition_termine">Vote  en cours. Deadline {{ getDeadline(c) | date:'EEE d MMMM y, HH:mm:ss ZZZZZ' }}</li>
+
+    <app-countdown *ngIf="c.proposition_termine" [deadline]="getDeadline(c)"></app-countdown>
+
+    <!-- <li>Resultat: </li> -->
+  </ol>
+
+  <app-proposeur-view></app-proposeur-view>
+
+  <app-voter-view></app-voter-view>
+
+
+
+</div>
+
+<ng-template #noPlanifiedPS>
+  Pas de PS planifiée.
+</ng-template>

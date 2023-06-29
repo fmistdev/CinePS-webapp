@@ -1,0 +1,12 @@
+<div *ngIf="isProposeurDefined$ | async">
+  <!-- <p>Le proposeur est défini</p> -->
+
+  <div *ngIf="isUserProposeur$ | async">
+    <!-- <p>L'utilisateur est le proposeur.</p> -->
+    <app-propose></app-propose>
+  </div>
+
+
+
+
+</div>

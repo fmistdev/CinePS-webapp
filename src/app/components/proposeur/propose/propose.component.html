@@ -1,0 +1,30 @@
+<div *ngIf="isPropositionInProgress$ | async; else propositionNotInProgress">
+    <!-- <p>Propositions en cours ✍️</p> -->
+    <div>
+        <input type="text" [(ngModel)]="theme" placeholder="theme">
+        <button (click)="addTheme()">Add Theme</button>
+    </div>
+
+    <ul>
+        <li *ngFor="let proposition of propositions$ | async">
+            <a href="{{ proposition.film.imdb }}">({{ proposition.film.sortie_film }}) {{ proposition.film.titre
+                }}</a><span title="delete proposition" (click)="deleteProposition(proposition.id)">🗑️</span>
+        </li>
+    </ul>
+
+    <div>
+        <input type="text" [(ngModel)]="filmTitle" placeholder="titre">
+        <input type="number" [(ngModel)]="filmYear" placeholder="année">
+        <input type="text" [(ngModel)]="filmImdbLink" placeholder="lien IMDB">
+        <button (click)="addFilm()">Add Film</button>
+    </div>
+
+    <button (click)="togglePropositionTerminee()">Terminer la proposition</button>
+</div>
+
+<ng-template #propositionNotInProgress>
+    <button (click)="togglePropositionTerminee()">Modifier la proposition (possible via l'api, mais non prévu dans le workflow)</button>
+
+    <app-result-view></app-result-view>
+    
+</ng-template>
