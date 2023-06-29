@@ -1,15 +1,21 @@
 <p>Tendance du résultat:</p>
-  
+
 <ul>
   <li *ngFor="let proposition of propositions$ | async">
-    <a href="{{ proposition.film.imdb }}">({{ proposition.film.sortie_film }}) {{ proposition.film.titre
-      }}</a>
-      <!-- <span> - score: {{ proposition.score }}</span> -->
-      - average rank: <span *ngIf="havingVotedCount$ | async as count">{{ rankingAverage(proposition.score, count) }}</span>
+    <a href="{{ proposition.film.imdb }}"
+      >({{ proposition.film.sortie_film }}) {{ proposition.film.titre }}</a
+    >
+    <!-- <span> - score: {{ proposition.score }}</span> -->
+    - average rank:
+    <span *ngIf="havingVotedCount$ | async as count">{{
+      rankingAverage(proposition.score, count)
+    }}</span>
   </li>
 </ul>
 
 <p>Ayant déjà voté:</p>
 <ul>
-    <li *ngFor="let havingVoted of havingVotedMembers$ | async">{{ havingVoted.Nom }}</li>
+  <li *ngFor="let havingVoted of havingVotedMembers$ | async">
+    {{ havingVoted.Nom }}
+  </li>
 </ul>

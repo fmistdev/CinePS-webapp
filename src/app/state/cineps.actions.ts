@@ -1,7 +1,4 @@
-import {
-  PostPropositionBody,
-  PropositionVote,
-} from '../models/api.model';
+import { PostPropositionBody, PropositionVote } from '../models/api.model';
 
 export namespace CinePsActions {
   export class GetCurrent {

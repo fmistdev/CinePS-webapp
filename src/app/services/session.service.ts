@@ -2,10 +2,9 @@ import { Injectable } from '@angular/core';
 import { Membre } from '../models/api.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class SessionService {
-
   private tokenKey = 'token';
   private membreKey = 'member';
 
@@ -13,7 +12,7 @@ export class SessionService {
   private storage = localStorage;
   // private storage = sessionStorage;
 
-  constructor() { }
+  constructor() {}
 
   setToken(token: string): void {
     this.storage.setItem(this.tokenKey, token);
@@ -41,7 +40,7 @@ export class SessionService {
 
   getMember(): string | null {
     const jsonMember = this.storage.getItem(this.membreKey);
-    if(!jsonMember) {
+    if (!jsonMember) {
       return null;
     }
     return JSON.parse(jsonMember);
@@ -50,5 +49,4 @@ export class SessionService {
   removeMember(): void {
     this.storage.removeItem(this.membreKey);
   }
-
 }

@@ -8,7 +8,7 @@ describe('SetupPsEventComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [SetupPsEventComponent]
+      declarations: [SetupPsEventComponent],
     });
     fixture = TestBed.createComponent(SetupPsEventComponent);
     component = fixture.componentInstance;

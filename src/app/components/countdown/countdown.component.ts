@@ -1,10 +1,15 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  Input,
+} from '@angular/core';
 
 @Component({
   selector: 'app-countdown',
   templateUrl: './countdown.component.html',
   styleUrls: ['./countdown.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CountdownComponent {
   @Input() deadline: Date = new Date();
@@ -21,14 +26,13 @@ export class CountdownComponent {
       this.ref.markForCheck();
     }, 1000);
   }
-
 }
 
 interface RemainingTime {
-  days: number; 
-  hours: number;  
-  minutes: number;  
-  seconds: number; 
+  days: number;
+  hours: number;
+  minutes: number;
+  seconds: number;
 }
 
 function remainingTime(date: Date): RemainingTime {
@@ -43,10 +47,10 @@ function remainingTime(date: Date): RemainingTime {
   const seconds = Math.floor(remainingSec % 60);
 
   // return `${days}d ${hours}h ${minutes}m ${seconds}s`;
-  return {days, hours, minutes, seconds};
+  return { days, hours, minutes, seconds };
 }
 
 function formatRemainingTime(remainingTime: RemainingTime): string {
-  const {days, hours, minutes, seconds} = remainingTime;
+  const { days, hours, minutes, seconds } = remainingTime;
   return `${days}d ${hours}h ${minutes}m ${seconds}s`;
 }

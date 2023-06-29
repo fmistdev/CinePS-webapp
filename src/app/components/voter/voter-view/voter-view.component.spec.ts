@@ -8,7 +8,7 @@ describe('VoterViewComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [VoterViewComponent]
+      declarations: [VoterViewComponent],
     });
     fixture = TestBed.createComponent(VoterViewComponent);
     component = fixture.componentInstance;

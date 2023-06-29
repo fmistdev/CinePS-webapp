@@ -15,9 +15,6 @@ import { AuthActions } from '../state/auth.state';
 /** Pass untouched request through to the next request handler. */
 @Injectable()
 export class HttpErrorInterceptor implements HttpInterceptor {
-
-  
-
   constructor(private store: Store) {}
 
   intercept(
@@ -38,7 +35,7 @@ export class HttpErrorInterceptor implements HttpInterceptor {
         } else if (error instanceof HttpErrorResponse) {
           errorMessage = `[Interceptor] HttpError Status ${error.status}: ${error.error.error} - ${error.error.message}`;
           handled = this.handleServerSideError(error);
-        } 
+        }
 
         // console.error(errorMessage ? errorMessage : error);
 
@@ -53,19 +50,17 @@ export class HttpErrorInterceptor implements HttpInterceptor {
         // } else {
         //   return of(error);
         // }
-  
+
         return throwError(() => error);
-      }),
+      })
     );
   }
-
-
 
   private handleServerSideError(error: HttpErrorResponse): boolean {
     let handled: boolean = false;
 
     switch (error.status) {
-      // Une authentification est nécessaire pour accéder à la ressource. 
+      // Une authentification est nécessaire pour accéder à la ressource.
       case HttpStatusCode.Unauthorized:
         // this.routeMessageService.message = "Please login again.";
         console.info(`[Interceptor] Unauthorized => logout`);
@@ -83,9 +78,4 @@ export class HttpErrorInterceptor implements HttpInterceptor {
 
     return handled;
   }
-  
 }
-
-
-
-

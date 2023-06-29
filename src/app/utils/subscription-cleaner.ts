@@ -1,16 +1,16 @@
-import { Component, OnDestroy } from "@angular/core";
-import { Subject } from "rxjs";
+import { Component, OnDestroy } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Component({
-    template: ''
-  })
+  template: '',
+})
 export abstract class SubscriptionCleaner implements OnDestroy {
-    isDestroyed$ = new Subject<boolean>();
-  
-    constructor() {}
-  
-    ngOnDestroy() {
-      this.isDestroyed$.next(true);
-      this.isDestroyed$.complete();
-    }
+  isDestroyed$ = new Subject<boolean>();
+
+  constructor() {}
+
+  ngOnDestroy() {
+    this.isDestroyed$.next(true);
+    this.isDestroyed$.complete();
   }
+}

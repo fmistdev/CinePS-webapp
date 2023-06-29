@@ -30,7 +30,7 @@ export class AuthInterceptor implements HttpInterceptor {
     }
 
     return next.handle(req).pipe(
-      catchError(error => {
+      catchError((error) => {
         if (error instanceof HttpErrorResponse) {
           if (error.status === HttpStatusCode.Unauthorized) {
             console.warn(`[AuthInterceptor] Unauthorized => logout`);

@@ -8,7 +8,7 @@ describe('ResultViewComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ResultViewComponent]
+      declarations: [ResultViewComponent],
     });
     fixture = TestBed.createComponent(ResultViewComponent);
     component = fixture.componentInstance;

@@ -1,19 +1,18 @@
 #testlist li {
-    padding: .5rem;
-    background-color: burlywood;
-    margin: .5rem 0;
-    cursor: grab;
+  padding: 0.5rem;
+  background-color: burlywood;
+  margin: 0.5rem 0;
+  cursor: grab;
 
-    &:active{
-        background-color: aquamarine;
-    }
+  &:active {
+    background-color: aquamarine;
+  }
 }
 
 $offset: 1rem;
 
 @for $i from 1 through 9 {
-    #testlist li:nth-child(#{$i}) {
-        margin-left: ($i - 1) * $offset;
-    }
+  #testlist li:nth-child(#{$i}) {
+    margin-left: ($i - 1) * $offset;
   }
-
+}

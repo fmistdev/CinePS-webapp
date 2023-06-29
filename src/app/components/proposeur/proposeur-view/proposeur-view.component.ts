@@ -12,9 +12,8 @@ import { SubscriptionCleaner } from 'src/app/utils/subscription-cleaner';
 export class ProposeurViewComponent extends SubscriptionCleaner {
   isProposeurDefined$ = this.store.select(CinePsSelectors.isProposeurDefined);
   isUserProposeur$ = this.store.select(CinePsSelectors.isUserProposeur);
-  
+
   constructor(private store: Store) {
     super();
   }
-
 }

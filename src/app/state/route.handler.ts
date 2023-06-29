@@ -6,13 +6,11 @@ import { AuthService } from '../services/auth.service';
 import { AuthActions } from './auth.state';
 import { Navigate } from '@ngxs/router-plugin';
 
-
 // TODO: payload plus detaillée: ['/crisis-center', { foo: 'foo' }]
 // export class RouteNavigate {
 //   static readonly type = '[Route] Navigate';
 //   constructor(public path: string) {}
 // }
-
 
 // @Injectable({ providedIn: 'root' })
 // export class RouteHandler {
@@ -24,7 +22,6 @@ import { Navigate } from '@ngxs/router-plugin';
 //         this.router.navigate([path]);
 //       });
 
-
 //       // this.actions$
 //       // .pipe(ofActionDispatched(AuthActions.Logout))
 //       // .subscribe(() => {
@@ -34,6 +31,5 @@ import { Navigate } from '@ngxs/router-plugin';
 //       //   // this.router.navigate([path]);
 //       // });
 //   }
-
 
 // }

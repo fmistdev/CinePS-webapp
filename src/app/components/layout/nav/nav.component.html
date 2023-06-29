@@ -1,6 +1,11 @@
 <nav>
-    <a *ngFor="let link of links" [routerLink]="link.path" [class.selected]="link.path[0] === (path$ | async)"
-        [class.disabled]="link.disabled" [class.permission-denied]="!link.permitted">
-        {{ link.label }}
-    </a>
+  <a
+    *ngFor="let link of links"
+    [routerLink]="link.path"
+    [class.selected]="link.path[0] === (path$ | async)"
+    [class.disabled]="link.disabled"
+    [class.permission-denied]="!link.permitted"
+  >
+    {{ link.label }}
+  </a>
 </nav>

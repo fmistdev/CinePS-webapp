@@ -23,8 +23,8 @@ const routes: Routes = [
   { path: '**', component: PageNotFoundComponent },
 ];
 
-const config = { 
-  // useHash: true, 
+const config = {
+  // useHash: true,
   // enableTracing: true,
 };
 

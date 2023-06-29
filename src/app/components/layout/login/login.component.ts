@@ -7,18 +7,16 @@ import { CinePsActions } from 'src/app/state/cineps.actions';
 import { getExpirationDate } from 'src/app/utils/services.utils';
 import { SubscriptionCleaner } from 'src/app/utils/subscription-cleaner';
 
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent extends SubscriptionCleaner {
-
   // init login form
   credentials = {
-    email: "",
-    password: ""
+    email: '',
+    password: '',
   };
 
   // init user select field
@@ -31,20 +29,18 @@ export class LoginComponent extends SubscriptionCleaner {
 
   userId: number = defaultMember.id;
 
-
-
-  constructor(
-    private store: Store
-  ) { super(); }
+  constructor(private store: Store) {
+    super();
+  }
 
   ngOnInit() {
-    // refresh selected user in list 
-    this.store.select(AuthSelectors.slices.userId).pipe(
-      takeUntil(this.isDestroyed$)
-    ).subscribe(userId => {
-      this.userId = userId;
-    })
-
+    // refresh selected user in list
+    this.store
+      .select(AuthSelectors.slices.userId)
+      .pipe(takeUntil(this.isDestroyed$))
+      .subscribe((userId) => {
+        this.userId = userId;
+      });
   }
 
   login(): void {
@@ -58,7 +54,4 @@ export class LoginComponent extends SubscriptionCleaner {
   selectMember() {
     this.store.dispatch(new AuthActions.SetUserId(this.userId));
   }
-
 }
-
-

@@ -1,32 +1,50 @@
 <p>Suggestions d'amélioration</p>
 <ul>
-    <li><app-add-member></app-add-member></li>
+  <li><app-add-member></app-add-member></li>
 
-    <li><app-setup-ps-event></app-setup-ps-event></li>
+  <li><app-setup-ps-event></app-setup-ps-event></li>
 
-    <li>fusionner les tables 'user' et 'membre'</li>
-    <li>inclure les membres ayant voté dans current semaine</li>
-    <li>dealine not implemented, devrait apparaitre dans current semaine</li>
+  <li>fusionner les tables 'user' et 'membre'</li>
+  <li>inclure les membres ayant voté dans current semaine</li>
+  <li>dealine not implemented, devrait apparaitre dans current semaine</li>
 
-    <li>api vote
-        <ul>
-            <li>l'api permet a un meme membre de voter plusieurs fois, cela ne devrait pas etre possible</li>
-            <li>prevoir unc endpoint de vote qui accepte d'un coup tous les votes d'un membre: POST /currentSemaine/vote</li>
-            <li>supprimer le endpoint POST /api/avote/idMembre</li>
-            <li>supprimer le endpoint POST /api/saveVoteProposition</li>
-        </ul>
-    </li>
+  <li>
+    api vote
+    <ul>
+      <li>
+        l'api permet a un meme membre de voter plusieurs fois, cela ne devrait
+        pas etre possible
+      </li>
+      <li>
+        prevoir unc endpoint de vote qui accepte d'un coup tous les votes d'un
+        membre: POST /currentSemaine/vote
+      </li>
+      <li>supprimer le endpoint POST /api/avote/idMembre</li>
+      <li>supprimer le endpoint POST /api/saveVoteProposition</li>
+    </ul>
+  </li>
 
-    <li>api propositions
-        <ul>
-            <li>a moins que ce soit un besoin de permettre a un proposeur de stocker un brouillon de proposition en attendant une validation, il serait plus simple d'avoir un endpoint POST /currentsemaine/propositions qui permette d'enregistrer d'un coup les proposition,le theme et de valider la proposition</li>
-            <li>PATCH /api/semaine/idSemaine permet de rendre modifiable une proposition terminée et ne devrait pas </li>
-            <li>PATCH /api/semaine/idSemaine a supprimer</li>
-        </ul>
+  <li>
+    api propositions
+    <ul>
+      <li>
+        a moins que ce soit un besoin de permettre a un proposeur de stocker un
+        brouillon de proposition en attendant une validation, il serait plus
+        simple d'avoir un endpoint POST /currentsemaine/propositions qui
+        permette d'enregistrer d'un coup les proposition,le theme et de valider
+        la proposition
+      </li>
+      <li>
+        PATCH /api/semaine/idSemaine permet de rendre modifiable une proposition
+        terminée et ne devrait pas
+      </li>
+      <li>PATCH /api/semaine/idSemaine a supprimer</li>
+    </ul>
+  </li>
 
-
-    </li>
-
-    <li>modifier GET /aVoteCurrentSemaine/idMembre en GET /user avec des info sur le user (nom, prenom, surnom, proposeur?, votant? a voté cette semaine ...)?</li>
-    <li>GET /aVoteCurrentSemaine/45 fonction meme sans token !!!</li>
+  <li>
+    modifier GET /aVoteCurrentSemaine/idMembre en GET /user avec des info sur le
+    user (nom, prenom, surnom, proposeur?, votant? a voté cette semaine ...)?
+  </li>
+  <li>GET /aVoteCurrentSemaine/45 fonction meme sans token !!!</li>
 </ul>

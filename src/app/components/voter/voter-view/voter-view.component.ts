@@ -7,7 +7,7 @@ import { CinePsSelectors } from 'src/app/state/cineps.state';
 @Component({
   selector: 'app-voter-view',
   templateUrl: './voter-view.component.html',
-  styleUrls: ['./voter-view.component.scss']
+  styleUrls: ['./voter-view.component.scss'],
 })
 export class VoterViewComponent {
   isProposeurDefined$ = this.store.select(CinePsSelectors.isProposeurDefined);
@@ -17,7 +17,7 @@ export class VoterViewComponent {
   );
   hasVotedUser$ = this.store.select(CinePsSelectors.slices.hasUserVoted);
   userId = this.store.selectSnapshot(AuthSelectors.slices.userId);
-  
+
   propositions$ = this.store
     .select(CinePsSelectors.slices.currentSemaine)
     .pipe(map((c) => (c ? c.propositions : [])));
